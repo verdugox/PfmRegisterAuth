@@ -42,8 +42,8 @@ public class UserServiceTest {
     public void testFindAllWithCircuitBreakerAndTimeLimiter() {
         // Configurar el comportamiento del mock userRepository
         List<User> userList = Arrays.asList(
-                new User("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15)),
-                new User("2", "87654321", "Jane", "Smith", "456 Elm St", 987654322, "jane@example.com", "9876543210123456", LocalDate.of(2021, 5, 20))
+                new User("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0),
+                new User("2", "87654321", "Jane", "Smith", "456 Elm St", 987654322, "jane@example.com", "9876543210123456", LocalDate.of(2021, 5, 20),false,0)
         );
         when(userRepository.findAll()).thenReturn(Flux.fromIterable(userList));
         // Testing

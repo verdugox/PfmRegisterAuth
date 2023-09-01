@@ -32,11 +32,6 @@ import java.time.Duration;
 @RequestMapping("/v1/user")
 public class UserController {
 
-    @Value("${spring.application.name}")
-    String name;
-
-    @Value("${server.port}")
-    String port;
 
     @Autowired
     private UserService userService;
@@ -58,11 +53,10 @@ public class UserController {
     @GetMapping("/findAll")
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllUsers")
     @TimeLimiter(name = "userTimeLimiter")
-    public Mono<ResponseEntity<Flux<UserModel>>> getAll(){
+    public Flux<UserModel> getAll() {
         log.info("getAll executed");
-        return Mono.just(ResponseEntity.ok()
-                .body(userService.findAll()
-                .map(user -> userMapper.entityToModel(user))));
+        return userService.findAll()
+                .map(user -> userMapper.entityToModel(user));
     }
 
 
@@ -85,8 +79,8 @@ public class UserController {
         return userService.findById(id)
                 .map(user -> userMapper.entityToModel(user))
                 .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build()).delayElement((Duration.ofSeconds(5)));
-
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+                //.defaultIfEmpty(ResponseEntity.notFound().build()).delayElement((Duration.ofSeconds(3)));
     }
 
 //    private String getKey(String id)
@@ -135,7 +129,7 @@ public class UserController {
         log.info("create executed {}", request);
         return userService.create(userMapper.modelToEntity(request))
                 .map(user -> userMapper.entityToModel(user))
-                .flatMap(c -> Mono.just(ResponseEntity.created(URI.create(String.format("http://%s:%s/%s/%s", name, port, "user", c.getId())))
+                .flatMap(c -> Mono.just(ResponseEntity.created(URI.create(String.format("http://%s:%s/%s/%s", "register", "9080", "user", c.getId())))
                         .body(c)))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
@@ -156,7 +150,7 @@ public class UserController {
         log.info("updateById executed {}:{}", id, request);
         return userService.update(id, userMapper.modelToEntity(request))
                 .map(user -> userMapper.entityToModel(user))
-                .flatMap(c -> Mono.just(ResponseEntity.created(URI.create(String.format("http://%s:%s/%s/%s", name, port, "user", c.getId())))
+                .flatMap(c -> Mono.just(ResponseEntity.created(URI.create(String.format("http://%s:%s/%s/%s", "register", "9080", "user", c.getId())))
                         .body(c)))
                 .defaultIfEmpty(ResponseEntity.badRequest().build());
     }

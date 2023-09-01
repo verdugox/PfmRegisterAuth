@@ -17,7 +17,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Random;
 
 @Slf4j
@@ -37,18 +36,19 @@ public class UserService {
 
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllUsers")
     @TimeLimiter(name = "userTimeLimiter")
+    @Cacheable(cacheNames = "allUsers")
     public Flux<User> findAll(){
         log.debug("findAll executed");
-        return userRepository.findAll();
+        return userRepository.findAll().cache();
     }
 
-    @Cacheable(value = "userCache", key = "#getById")
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackFindById")
     @TimeLimiter(name = "userTimeLimiter")
+    @Cacheable(cacheNames = "userById", key = "#userId")
     public Mono<User> findById(String userId)
     {
         log.debug("findById executed {}" , userId);
-        return userRepository.findById(userId);
+        return userRepository.findById(userId).cache();
     }
 
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllItems")
@@ -101,15 +101,4 @@ public class UserService {
                         .then(Mono.just(existingUser)));
     }
 
-//    public Flux<User> fallbackGetAllUsers(Throwable throwable) {
-//        log.error("Fallback executed for findAll: {}", throwable.getMessage());
-//        // Puedes agregar lógica adicional aquí si es necesario
-//        return Flux.empty();
-//    }
-//
-//    public Mono<User> fallbackFindById(String userId, Throwable throwable) {
-//        log.error("Fallback executed for findById {}: {}", userId, throwable.getMessage());
-//        // Puedes agregar lógica adicional aquí si es necesario
-//        return Mono.empty();
-//    }
 }

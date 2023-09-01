@@ -1,5 +1,7 @@
 package api.register.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,18 +11,17 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Random;
 
 @Data
 @Builder
-@ToString
 @EqualsAndHashCode(of={"identityDni"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "users")
-public class User
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class User implements Serializable
 {
     @Id
     private String id;
@@ -53,5 +54,10 @@ public class User
     private String imei;
 
     private LocalDate dateRegister;
+
+    @JsonIgnore
+    private boolean scanAvailable;
+    @JsonIgnore
+    private int prefetch;
 
 }

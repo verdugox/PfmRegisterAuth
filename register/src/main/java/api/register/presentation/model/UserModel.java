@@ -1,6 +1,7 @@
 package api.register.presentation.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,13 +9,15 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserModel
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class UserModel implements Serializable
 {
     @JsonIgnore
     private String id;
@@ -40,4 +43,9 @@ public class UserModel
     private String imei;
 
     private LocalDate dateRegister;
+
+    @JsonIgnore
+    private boolean scanAvailable;
+    @JsonIgnore
+    private int prefetch;
 }
