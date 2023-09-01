@@ -1,38 +1,30 @@
 package api.register.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.EnableCaching;
+import api.register.domain.User;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.cache.CacheKeyPrefix;
-import org.springframework.data.redis.cache.RedisCacheConfiguration;
-import org.springframework.data.redis.cache.RedisCacheManager;
-import org.springframework.data.redis.cache.RedisCacheWriter;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
+import org.springframework.data.redis.core.ReactiveHashOperations;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-
-import java.time.Duration;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-@EnableCaching
+@ConditionalOnProperty(name = "cache.enabled", havingValue = "true")
 public class RedisCacheConfig {
 
-    @Autowired
-    private RedisConnectionFactory redisConnectionFactory;
-
     @Bean
-    public RedisCacheManager cacheManager() {
-        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ofMinutes(10))
-                .disableCachingNullValues()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(
-                        new Jackson2JsonRedisSerializer<>(Object.class)));
-
-        RedisCacheWriter cacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
-
-        return RedisCacheManager.builder(cacheWriter)
-                .cacheDefaults(cacheConfig)
-                .build();
+    public ReactiveHashOperations<String, String, User> hashOperations(ReactiveRedisConnectionFactory redisConnectionFactory){
+        var template = new ReactiveRedisTemplate<>(
+                redisConnectionFactory,
+                RedisSerializationContext.<String, User>newSerializationContext(new StringRedisSerializer())
+                        .hashKey(new GenericToStringSerializer<>(String.class))
+                        .hashValue(new Jackson2JsonRedisSerializer<>(User.class))
+                        .build()
+        );
+        return template.opsForHash();
     }
 }

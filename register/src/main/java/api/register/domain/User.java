@@ -1,7 +1,10 @@
 package api.register.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,12 +18,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
+@ToString
 @Builder
 @EqualsAndHashCode(of={"identityDni"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "users")
 //@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class User implements Serializable
 {
     @Id
@@ -53,6 +58,8 @@ public class User implements Serializable
 
     private String imei;
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate dateRegister;
 
     @JsonIgnore

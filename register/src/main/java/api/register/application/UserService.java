@@ -10,7 +10,8 @@ import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.data.redis.core.ReactiveHashOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
@@ -23,6 +24,7 @@ import java.util.Random;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@ConditionalOnProperty(name = "cache.enabled", havingValue = "true")
 public class UserService {
 
     @Autowired
@@ -34,21 +36,26 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private ReactiveHashOperations<String, String, User> hashOperations;
+
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllUsers")
     @TimeLimiter(name = "userTimeLimiter")
-    @Cacheable(cacheNames = "allUsers")
     public Flux<User> findAll(){
         log.debug("findAll executed");
-        return userRepository.findAll().cache();
+        return  userRepository.findAll();
+
     }
 
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackFindById")
     @TimeLimiter(name = "userTimeLimiter")
-    @Cacheable(cacheNames = "userById", key = "#userId")
     public Mono<User> findById(String userId)
     {
         log.debug("findById executed {}" , userId);
-        return userRepository.findById(userId).cache();
+        return  hashOperations.get("UserRedis",userId)
+                .switchIfEmpty(userRepository.findById(userId)
+                        .flatMap(user -> hashOperations.put("UserRedis",user.getId(),user)
+                                .thenReturn(user)));
     }
 
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllItems")

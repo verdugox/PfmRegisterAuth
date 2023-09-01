@@ -4,7 +4,6 @@ import api.register.application.UserService;
 import api.register.domain.User;
 import api.register.presentation.mapper.UserMapper;
 import api.register.presentation.model.UserModel;
-
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,8 +14,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -24,7 +21,6 @@ import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.time.Duration;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -32,14 +28,10 @@ import java.time.Duration;
 @RequestMapping("/v1/user")
 public class UserController {
 
-
-    @Autowired
+    @Autowired(required = true)
     private UserService userService;
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private StringRedisTemplate redisTemplate;
-
 
     @Operation(summary = "Listar todos los usuarios registrados")
     @ApiResponses(value = {
@@ -73,24 +65,11 @@ public class UserController {
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackFindById")
     @TimeLimiter(name = "userTimeLimiter")
     public Mono<ResponseEntity<UserModel>> findById(@PathVariable String id){
-//        log.info("findById executed {}", id);
-//        ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-//        valueOp.set(getKey(id), userService.findById(id).toString(), Duration.ofSeconds(20));
         return userService.findById(id)
                 .map(user -> userMapper.entityToModel(user))
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
-                //.defaultIfEmpty(ResponseEntity.notFound().build()).delayElement((Duration.ofSeconds(3)));
     }
-
-//    private String getKey(String id)
-//    {
-//        return "Users -" .concat(id);
-//    }
-//    private String getKey2(String param)
-//    {
-//        return "List Users" .concat(param);
-//    }
 
     @Operation(summary = "Listar todos los usuarios por DNI")
     @ApiResponses(value = {
