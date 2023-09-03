@@ -6,6 +6,7 @@ import api.register.presentation.mapper.UserMapper;
 import api.register.presentation.model.UserModel;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
+import io.micrometer.core.annotation.Timed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -45,6 +46,7 @@ public class UserController {
     @GetMapping("/findAll")
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackGetAllUsers")
     @TimeLimiter(name = "userTimeLimiter")
+    @Timed(description = "usersGetAll")
     public Flux<UserModel> getAll() {
         log.info("getAll executed");
         return userService.findAll()
@@ -64,6 +66,7 @@ public class UserController {
     @GetMapping("/findById/{id}")
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackFindById")
     @TimeLimiter(name = "userTimeLimiter")
+    @Timed(description = "usersGetById")
     public Mono<ResponseEntity<UserModel>> findById(@PathVariable String id){
         return userService.findById(id)
                 .map(user -> userMapper.entityToModel(user))

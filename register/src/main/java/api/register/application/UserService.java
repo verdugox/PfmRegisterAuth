@@ -43,7 +43,18 @@ public class UserService {
     @TimeLimiter(name = "userTimeLimiter")
     public Flux<User> findAll(){
         log.debug("findAll executed");
-        return  userRepository.findAll();
+
+        // Intenta obtener todos los usuarios desde el caché de Redis
+        Flux<User> cachedUsers = hashOperations.values("UserRedis")
+                .flatMap(user -> Mono.justOrEmpty((User) user));
+
+        // Si hay datos en la caché de Redis, retornarlos
+        return cachedUsers.switchIfEmpty(userRepository.findAll()
+                .flatMap(user -> {
+                    // Almacena cada usuario en la caché de Redis
+                    return hashOperations.put("UserRedis", user.getId(), user)
+                            .thenReturn(user);
+                }));
 
     }
 

@@ -17,8 +17,6 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class UserModel implements Serializable
 {
     @JsonIgnore

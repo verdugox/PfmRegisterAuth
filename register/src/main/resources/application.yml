@@ -47,6 +47,20 @@ resilience4j:
 
 logging:
   level:
-    org.springframework.data.mongodb.core: DEBUG  # Nivel de registro para Spring Data MongoDB
+    root: debug
 
-
+#Monitoreo con Actuator-Prometheus y Grafana.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+        show-details: always
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true

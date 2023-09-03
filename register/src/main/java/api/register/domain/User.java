@@ -24,8 +24,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(value = "users")
-//@JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class User implements Serializable
 {
     @Id
