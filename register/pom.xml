@@ -16,12 +16,11 @@
 
 	<properties>
 		<sonar.exclusions>
-			**/entity/*.java,
-			**/listener/*.java,
-			**/repository/*.java,
-			**/service/web/mapper/*.java,
-			**/service/web/model/*.java,
-			**/service/web/*.java,
+			**/application/*.java,
+			**/config/*.java,
+			**/domain/*.java,
+			**/presentation/mapper/*.java,
+			**/presentation/model/*.java,
 			pom.xml,
 			**/*RegisterApplication.java
 		</sonar.exclusions>
