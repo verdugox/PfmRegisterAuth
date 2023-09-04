@@ -11,17 +11,19 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.redis.core.ReactiveHashOperations;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
 
     @InjectMocks
     private UserService userService;
@@ -38,37 +40,77 @@ public class UserServiceTest {
     @Mock
     private UserMapper userMapper;
 
-    @Test
-    public void testFindAllWithCircuitBreakerAndTimeLimiter() {
-        // Configurar el comportamiento del mock userRepository
-        List<User> userList = Arrays.asList(
-                new User("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0),
-                new User("2", "87654321", "Jane", "Smith", "456 Elm St", 987654322, "jane@example.com", "9876543210123456", LocalDate.of(2021, 5, 20),false,0)
-        );
-        when(userRepository.findAll()).thenReturn(Flux.fromIterable(userList));
-        // Testing
-        Flux<User> result = userService.findAll();
-        // Verificar el comportamiento esperado
-        StepVerifier.create(result)
-                .expectNextCount(userList.size()) // Espera el mismo número de elementos que userList
-                .verifyComplete();
-    }
+    @Mock
+    private ReactiveHashOperations<String, String, User> hashOperations;
 
     @Test
-    public void testFindAllWithCircuitBreakerAndTimeLimiterError() {
-        // Configurar el comportamiento del mock userRepository para lanzar una excepción
-        when(userRepository.findAll()).thenReturn(Flux.error(new RuntimeException("Error fetching users")));
-
-        // Testing
-        Flux<User> result = userService.findAll();
-
-        // Verificar el comportamiento esperado
+    void testFindByIdentityDni() {
+        User user = createUser("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0);
+        when(userRepository.findByIdentityDni("12345678")).thenReturn(Mono.just(user));
+        Mono<User> result = userService.findByIdentityDni("12345678");
         StepVerifier.create(result)
-                .expectError(RuntimeException.class) // Espera una excepción
+                .expectNext(user)
+                .expectComplete()
                 .verify();
-
-        // Verificar que el CircuitBreaker y el TimeLimiter registraron el evento
-        // Puedes agregar aserciones adicionales aquí si el CircuitBreaker y el TimeLimiter tienen métodos para comprobar el estado o el registro de eventos
     }
+
+    @Test
+    void testCreate() {
+        User newUser = createUser("3", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0);
+        when(userRepository.save(newUser)).thenReturn(Mono.just(newUser));
+        Mono<User> result = userService.create(newUser);
+        StepVerifier.create(result)
+                .expectNext(newUser)
+                .expectComplete()
+                .verify();
+    }
+
+    @Test
+    void testUpdate() {
+        User existingUser = createUser("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0);
+        User updatedUser = createUser("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0);
+
+        updatedUser.setFirstName("Updated");
+        when(userRepository.findById("1")).thenReturn(Mono.just(existingUser));
+        when(userRepository.save(existingUser)).thenReturn(Mono.just(updatedUser));
+        Mono<User> result = userService.update("1", updatedUser);
+
+        StepVerifier.create(result)
+                .expectNext(updatedUser)
+                .expectComplete()
+                .verify();
+    }
+
+    @Test
+    void testDelete() {
+        User userToDelete = createUser("1", "12345678", "John", "Doe", "123 Main St", 987654321, "john@example.com", "1234567890123456", LocalDate.of(2022, 1, 15),true,0);
+        when(userRepository.findById("1")).thenReturn(Mono.just(userToDelete));
+        when(userRepository.delete(userToDelete)).thenReturn(Mono.empty());
+
+        Mono<User> result = userService.delete("1");
+
+        StepVerifier.create(result)
+                .expectNext(userToDelete)
+                .expectComplete()
+                .verify();
+    }
+
+    private User createUser(String id,String identityDni,String firstName, String lastName, String address, Integer phone, String email, String imei, LocalDate dateRegister, Boolean scanAvailable, Integer prefetch) {
+        User user = new User();
+        user.setId(id);
+        user.setIdentityDni(identityDni);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setAddress(address);
+        user.setPhone(phone);
+        user.setEmail(email);
+        user.setImei(imei);
+        user.setDateRegister(dateRegister);
+        user.setScanAvailable(scanAvailable);
+        user.setPrefetch(prefetch);
+        // Set other properties here
+        return user;
+    }
+
 
 }

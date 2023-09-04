@@ -55,7 +55,6 @@ public class UserService {
                     return hashOperations.put("UserRedis", user.getId(), user)
                             .thenReturn(user);
                 }));
-
     }
 
     @CircuitBreaker(name = "userCircuit", fallbackMethod = "fallbackFindById")

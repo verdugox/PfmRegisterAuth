@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>bankIntegration - Checkstyle report</title>
+    <link>https://spring.io/projects/spring-boot/bank-integration</link>
+    <description>bankIntegration - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2023</copyright>
+    <item>
+      <title>File: 9,
+             Errors: 3,
+             Warnings: 3,
+             Infos: 0
+      </title>
+            <link>https://spring.io/projects/spring-boot/bank-integration/checkstyle.html</link>
+      <description>
+        <p>Click <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.config.RedisCacheConfig.java">bank/bankintegration/config/RedisCacheConfig.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.config.CircuitResilienceListener.java">bank/bankintegration/config/CircuitResilienceListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.presentation.BankIntegrationController.java">bank/bankintegration/presentation/BankIntegrationController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.presentation.model.BankIntegrationModel.java">bank/bankintegration/presentation/model/BankIntegrationModel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.presentation.mapper.BankIntegrationMapper.java">bank/bankintegration/presentation/mapper/BankIntegrationMapper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.domain.BankIntegration.java">bank/bankintegration/domain/BankIntegration.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.application.BankIntegrationService.java">bank/bankintegration/application/BankIntegrationService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.BankIntegrationApplication.java">bank/bankintegration/BankIntegrationApplication.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://spring.io/projects/spring-boot/bank-integration/checkstyle.html#bank.bankintegration.domain.BankIntegrationRepository.java">bank/bankintegration/domain/BankIntegrationRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
