@@ -1,0 +1,1805 @@
+{
+	"info": {
+		"_postman_id": "4fecfabd-b8a3-4369-99ae-5e41286dce87",
+		"name": "PFM_NTTDATA_LuisAcuña",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2809903"
+	},
+	"item": [
+		{
+			"name": "MicroUsers",
+			"item": [
+				{
+					"name": "Create User A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres\",\r\n\t\t\"lastName\" : \"Acuña Ramos\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 98563214,\r\n        \"email\" : \"lacunara@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"firstName\" : \"Armando\",\r\n\t\t\"lastName\" : \"Astudillo\",\r\n        \"address\" : \"Urb. Piura\",\r\n        \"phone\": 954123658,\r\n        \"email\" : \"armandoastu@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n        \"firstName\" : \"Victorio\",\r\n\t\t\"lastName\" : \"Gordillo\",\r\n        \"address\" : \"Urb. Barrio Fino\",\r\n        \"phone\": 946325478,\r\n        \"email\" : \"gordillo@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"firstName\" : \"Luis Andres\",\r\n\t\t\"lastName\" : \"Acuña Ramos\",\r\n        \"address\" : \"Urb. La Tombola\",\r\n        \"phone\": 98563214,\r\n        \"email\" : \"lacunaraaaaa@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/64f5fbf4c217ac0149472c3c",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"64f5fbf4c217ac0149472c3c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"firstName\" : \"Armandoooooo\",\r\n\t\t\"lastName\" : \"Astudillo\",\r\n        \"address\" : \"Urb. Piura\",\r\n        \"phone\": 954123658,\r\n        \"email\" : \"armandoastu@gmail.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/64f5fbf7c217ac0149472c3d",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"64f5fbf7c217ac0149472c3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Users For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/findById/64ea666c54f206195e941499",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"findById",
+								"64ea666c54f206195e941499"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Users For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Users For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9080/v1/user/64ea667254f206195e94149b",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"v1",
+								"user",
+								"64ea667254f206195e94149b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroWalletYanki",
+			"item": [
+				{
+					"name": "Create Yanki A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"phoneNumber\": 98563214,\r\n        \"balance\" : 150000,\r\n        \"linkedCardId\" : \"123852ASDWSX6789\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Yanki B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"phoneNumber\": 954123658,\r\n        \"balance\" : 900045400,\r\n        \"linkedCardId\" : \"9632556AWDAPJ897845\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Yanki C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n        \"phoneNumber\": 946325478,\r\n        \"balance\" : 8000000,\r\n        \"linkedCardId\" : \"452398AWDAWDKJJ45\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Yanki A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"phoneNumber\": 98563214,\r\n        \"balance\" : 3000000.00,\r\n        \"linkedCardId\" : \"123852ASDWSX6789\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Yanki B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"96325874\",\r\n        \"phoneNumber\": 954123658,\r\n        \"balance\" : 800000.00,\r\n        \"linkedCardId\" : \"9632556AWDAPJ897845\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Yanki",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Yanki For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/findById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"findById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Yanki For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Yanki For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9081/v1/yanki/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"v1",
+								"yanki",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroBankIntegration",
+			"item": [
+				{
+					"name": "Create BankIntegration A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"accountNumber\": \"56247410009654412\",\r\n        \"accountType\" : \"AHORRO\",\r\n        \"balance\" : 50000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create BankIntegration B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"accountNumber\": \"90004552116545756\",\r\n        \"accountType\" : \"CORRIENTE\",\r\n        \"balance\" : 60000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create BankIntegration C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n        \"accountNumber\": \"90004552116545756\",\r\n        \"accountType\" : \"AHORRO\",\r\n        \"balance\" : 70000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update BankIntegration A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"accountNumber\": \"56247410009654412\",\r\n        \"accountType\" : \"AHORRO\",\r\n        \"balance\" : 80000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update BankIntegration B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"96325874\",\r\n        \"accountNumber\": \"90004552116545756\",\r\n        \"accountType\" : \"CORRIENTE\",\r\n        \"balance\" : 90000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All BankIntegration",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List BankIntegration For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/findById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"findById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List BankIntegration For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete BankIntegration For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9083/v1/bank/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9083",
+							"path": [
+								"v1",
+								"bank",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroBootCoin",
+			"item": [
+				{
+					"name": "Create BootCoin A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"amount\": 50000,\r\n        \"transactionType\" : \"COMPRA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create BootCoin  B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"amount\": 40000,\r\n        \"transactionType\" : \"COMPRA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create BootCoin C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n         \"amount\": 70000,\r\n        \"transactionType\" : \"VENTA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update BootCoin A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"amount\": 40000,\r\n        \"transactionType\" : \"COMPRA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update BootCoin B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"96325874\",\r\n        \"amount\": 30000,\r\n        \"transactionType\" : \"COMPRA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All BootCoin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List BootCoin  For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/findById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"findById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List BootCoin  For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete BootCoin For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9085/v1/bootCoin/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9085",
+							"path": [
+								"v1",
+								"bootCoin",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroNotification",
+			"item": [
+				{
+					"name": "Create Notification A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"message\": \"Se realizo el envío de notificación de forma exitosa al registrarse\",\r\n        \"status\" : \"ENVIADO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Notification B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"message\": \"Notificacion sobre compra de bitcoin\",\r\n        \"status\" : \"CANCELADO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Notification C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n        \"message\": \"Notificacion enviada de forma exitosa para compra de dolares\",\r\n        \"status\" : \"ENVIADO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Notification A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"message\": \"Se realizo el envío de notificación de forma exitosa\",\r\n        \"status\" : \"ENVIADO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Notification B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"96325874\",\r\n        \"message\": \"Notificacion sobre compra de bitcoin de forma exitosa\",\r\n        \"status\" : \"CANCELADO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Notification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Notification For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/findById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"findById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Notification For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notification For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9082/v1/notification/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9082",
+							"path": [
+								"v1",
+								"notification",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MicroTranssaction",
+			"item": [
+				{
+					"name": "Create Transsaction A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"1\",\r\n        \"identityDni\" : \"46285513\",\r\n        \"transactionType\": \"COMPRA\",\r\n        \"details\" : \"Se realizo una compra de una guitarra electrica\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transsaction B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"2\",\r\n        \"identityDni\" : \"96325874\",\r\n        \"transactionType\": \"PAGO\",\r\n        \"details\" : \"Pago de Celular por monto de 150 soles\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transsaction C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\" : \"3\",\r\n        \"identityDni\" : \"45632457\",\r\n        \"transactionType\": \"RECARGA\",\r\n        \"details\" : \"Recarga de Monedero Virtual por 1000 soles\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transsaction A",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"46285513\",\r\n        \"transactionType\": \"COMPRA\",\r\n        \"details\" : \"Se realizo una compra de una guitarra\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transsaction B",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"identityDni\" : \"96325874\",\r\n        \"transactionType\": \"PAGO\",\r\n        \"details\" : \"Pago de Celular por monto de 200 soles\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Transsaction",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Transsaction For ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"firstName\" : \"Luis Andres\",\r\n        \"lastName\" : \"Acuña Ramos\",\r\n        \"dni\" : \"46285513\",\r\n        \"phone\": 975456789,\r\n        \"email\" : \"luisandres@gmail.com\",\r\n        \"afp\" : \"AFP Prima\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Pedro\",\r\n        \"lastName\" : \"Quispe\",\r\n        \"dni\" : \"45678767\",\r\n        \"phone\": 943456765,\r\n        \"email\" : \"pedrogallese@gmail.com\",\r\n        \"afp\" : \"Profuturo\"\r\n    },\r\n    {\r\n        \"firstName\" : \"Victor\",\r\n        \"lastName\" : \"Gordillo\",\r\n        \"dni\" : \"43657687\",\r\n        \"phone\": 912345678,\r\n        \"email\" : \"victorgordillo@gmail.com\",\r\n        \"afp\" : \"AFP Integra\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/findById/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"findById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Transsaction For DNI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/findByIdentityDni/46285513",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"findByIdentityDni",
+								"46285513"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transsaction For ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9084/v1/transsaction/3",
+							"host": [
+								"localhost"
+							],
+							"port": "9084",
+							"path": [
+								"v1",
+								"transsaction",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Config-Server",
+			"item": [
+				{
+					"name": "Config Register",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/register/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"register",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config Wallet Yanki",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/yanki/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"yanki",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config Bank Integration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/bankIntegration/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"bankIntegration",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config BootCoin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/bootCoin/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"bootCoin",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config Notification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/notification/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"notification",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config Transsaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/transsaction/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"transsaction",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config EurekaServer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/transsaction/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"transsaction",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
